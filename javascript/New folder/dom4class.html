@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script type="text/javascript"> //if we use id it will be unique 
+            
+            function change()
+            {
+                var a=document.getElementsByClassName("mypara");
+                for(var i=0;i<a.length;i++){
+                    a[i].style.color="red";
+                }
+
+            }
+
+        </script>
+    </head>
+    <body>
+        <p class="mypara">this is para1</p>
+        <p>this is para2</p>
+        <p class="mypara">this is para3</p>
+        <br>
+        <button onclick="change()">click me </button>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function changestyle()
+            {
+                    //particluar tag name can access and change the value like div tag 
+                    var para=document.getElementsByTagName("p");
+                    // para[0].style.fontSize=25;
+                    // para[1].style.color="red";
+                    // para[2].style.fontStyle="italic";
+                    // para[3].style.fontWeight="bold"
+                    for(var i=0;i<para.length;i++){
+                            para[i].style.fontSize=50;
+                    }
+
+            }
+        </script>
+    </head>
+    <body>
+        <p>this is p1</p>
+        <p>this is p2</p>
+        <p>this is p3</p>
+        <p>this is p4</p>
+        <p>this is p5</p>
+        <br>
+        <button onclick="changestyle()">Click me</button>"
+    </body>
+</html>

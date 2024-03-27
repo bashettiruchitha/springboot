@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function val()
+            {
+                    var username=document.getElementById("uname");
+                     var password=document.getElementById("pswd");
+                     if(username.value.trim()==" "){
+                        username.style.border="solid 3px red";
+                        document.getElementById("label").style.visibility="visible";
+                        return false
+                     }else if(password.value.trim()== ""){
+                        alert("blank password");
+                        return false;
+                     }else if(password.value.trim().length<5){
+                        alert("the password is too short");
+                        return false;
+                     }else{
+                        return true;
+                     }
+                    // if(username.value.trim()==" " || password.value.trim()==" "){
+                    //     alert("no blank values allowed");
+                    //     return false;
+                    // }else{
+                    //     true;
+
+                    // }
+                }
+
+        </script>
+    </head>
+    <body>
+        <form onsubmit=" return val()" action="message.html">
+            <input id="uname" placeholder="username" type="text" required><br>
+            <br>
+            <label id="label" style="color:red ; visibility: hidden;">invalid</label>
+            <input id="pswd" placeholder="password" type="password" required><br>
+            <br>
+            <br>
+            <button onclick="val()" type="submit">SUBMIT</button>
+        </form>
+    </body>
+</html>

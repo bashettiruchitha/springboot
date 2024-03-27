@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function val(){
+                var text=document.getElementById("text").value;
+                var regex=/^[7-9][0-9]{9}$/
+                if(regex.test(text)){
+                    document.getElementById("label").innerHTML="valid";
+                    document.getElementById("label").style.visibility="visible";
+                    document.getElementById("label").style.color="green";
+                }else{
+                    document.getElementById("label").innerHTML="invalid";
+                    document.getElementById("label").style.visibility="visible";
+                    document.getElementById("label").style.color="green";
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <form>
+            <input id="text"placeholder="cellphone" type="text"><br>
+            <label id="label" style="color: red; visibility: hidden;">INVALID</label>
+            <BR>
+                <button onclick="val()" type="button">submit</button>
+        </form>
+    </body>
+</html>

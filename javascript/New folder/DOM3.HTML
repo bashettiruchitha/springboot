@@ -1,0 +1,20 @@
+<html>
+<head>
+    <script type="text/javascript">
+        function fun1()
+        {
+            var select = document.getElementById("box");
+            alert(select.options[select.selectedIndex].value);
+        }
+    </script>
+</head>
+<body>
+    <select id="box">
+        <option value="ss">simple</option>
+        <option value="kk">KPIT</option>
+        <option value="ee">EMPLOYEES</option>
+    </select>
+    <br>
+    <button onclick="fun1()">click me</button>
+</body>
+</html>
