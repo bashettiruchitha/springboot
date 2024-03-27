@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="toast.css"> 
+<script src="https://kit.fontawesome.com/5e768f69a7.js" crossorigin="anonymous"></script>
+<!-- <style>
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+ 
+        .success {
+            background-color: #4CAF50;
+        }
+ 
+        .error {
+            background-color: #f44336;
+        }
+ 
+        .invalid {
+            background-color: #ffc107;
+            color: #333;
+        }
+</style> -->
+<style>
+    /* Additional styles specific to the HTML structure */
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    form {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    table {
+        margin: 0 auto;
+    }
+</style>
+</head>
+<body>
+ 
+    <div id="toastBox"></div>
+ 
+    <script type="text/javascript">
+        function showtoast(msg, type) {
+            let toastBox = document.getElementById('toastBox');
+            let toast = document.createElement('div');
+            toast.classList.add('toast');
+ 
+            if (type === 'success') {
+                toast.innerHTML = '<i class="fas fa-check-circle"></i> ' + msg;
+                toast.classList.add('success');
+            } else if (type === 'error') {
+                toast.innerHTML = '<i class="fas fa-times-circle"></i> ' + msg;
+                toast.classList.add('error');
+            } else if (type === 'invalid') {
+                toast.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + msg;
+                toast.classList.add('invalid');
+            }
+ 
+            toastBox.appendChild(toast);// Append the created toast div to the 'toastBox' element
+
+            setTimeout(() => {
+                toast.remove();
+            }, 8000);  // Increase the duration here (in milliseconds)
+        }
+ 
+        function validateForm() {
+            var username = document.getElementById('uname');
+            var password = document.getElementById('pswd');
+            var label = document.getElementById('label');
+ 
+            if (username.value.trim() === "") {
+                username.style.border = "solid 3px red";
+                label.style.visibility = "visible";
+                showtoast('Invalid: Username cannot be empty', 'invalid');
+                return false;
+            } else if (password.value.trim() === "") {
+                showtoast('Error: Blank password', 'error');
+                return false;
+            } else if (password.value.trim().length < 5) {
+                showtoast('Error: Password is too short', 'error');
+                return false;
+            } else {
+                showtoast('Success: Form submitted successfully', 'success');
+                return true;
+            }
+        }
+</script>
+
+    <form onsubmit="return validateForm()">
+    <table>
+   
+<tr><td>USER NAME: <input id="uname" placeholder="username" type="text"></td></tr><br>
+<tr><td><label id="label" style="color: red; visibility: hidden;">invalid</label></td></tr>
+<br>
+<tr><td>PASSWORD: <input id="pswd" placeholder="password" type="password"><br></td></tr><br>
+<tr><td><input type="submit" value="Submit"></td></tr>
+
+</table>
+</form>
+ 
+</body>
+</html>
